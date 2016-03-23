@@ -1,0 +1,381 @@
+2016-02-10 12:02:01.296209
+Emoji and Tags:
+Counter({'joy': 396472,
+         'sad': 89006,
+         'fear': 17251,
+         'anger': 17058,
+         'surprise': 11673,
+         'disgust': 1207,
+         'anticipation': 35,
+         'trust': 22})
+Emoji:
+Counter({'joy': 396323,
+         'sad': 89003,
+         'fear': 17229,
+         'anger': 17048,
+         'surprise': 11665,
+         'disgust': 1198,
+         'anticipation': 0,
+         'trust': 0})
+Tags:
+Counter({'joy': 182,
+         'anticipation': 35,
+         'trust': 22,
+         'fear': 22,
+         'anger': 11,
+         'disgust': 9,
+         'surprise': 8,
+         'sad': 4})
+
+Totals by language (top 10 languages):
+
+[(1015, 'la'),
+ (1126, 'tr'),
+ (1498, 'it'),
+ (2095, 'ca'),
+ (2688, 'fr'),
+ (4155, 'es'),
+ (5169, 'UNKNOWN'),
+ (5820, 'ar'),
+ (6057, 'pt'),
+ (20131, 'en')]
+
+
+2016-02-10 12:31:34.813741
+Language Counts
+en  : 
+   Emoji and Tags: 
+         'joy': 147618,
+         'sad': 35562,
+         'anger': 6147,
+         'fear': 5742,
+         'surprise': 4135,
+         'disgust': 410,
+         'anticipation': 33,
+         'trust': 15
+   Emoji: 
+         'joy': 147541,
+         'sad': 35561,
+         'anger': 6140,
+         'fear': 5721,
+         'surprise': 4129,
+         'disgust': 402,
+         'anticipation': 0,
+         'trust': 0
+   Tags: 
+         'joy': 89,
+         'anticipation': 33,
+         'fear': 21,
+         'trust': 15,
+         'disgust': 8,
+         'anger': 7,
+         'surprise': 6,
+         'sad': 2
+
+ja  : 
+   Emoji and Tags: 
+         'joy': 49289,
+         'sad': 11145,
+         'surprise': 3355,
+         'fear': 2892,
+         'anger': 2169,
+         'disgust': 329,
+         'anticipation': 0,
+         'trust': 0
+   Emoji: 
+         'joy': 49283,
+         'sad': 11145,
+         'surprise': 3355,
+         'fear': 2892,
+         'anger': 2169,
+         'disgust': 329,
+         'anticipation': 0,
+         'trust': 0
+   Tags: 
+         'joy': 7,
+         'surprise': 0,
+         'anticipation': 0,
+         'disgust': 0,
+         'trust': 0,
+         'fear': 0,
+         'sad': 0,
+         'anger': 0
+
+es  : 
+   Emoji and Tags: 
+         'joy': 39275,
+         'sad': 8621,
+         'anger': 2689,
+         'fear': 2148,
+         'surprise': 1035,
+         'disgust': 94,
+         'anticipation': 0,
+         'trust': 0
+   Emoji: 
+         'joy': 39262,
+         'sad': 8621,
+         'anger': 2689,
+         'fear': 2148,
+         'surprise': 1035,
+         'disgust': 94,
+         'anticipation': 0,
+         'trust': 0
+   Tags: 
+         'joy': 17,
+         'anger': 1,
+         'surprise': 0,
+         'anticipation': 0,
+         'disgust': 0,
+         'trust': 0,
+         'fear': 0,
+         'sad': 0
+
+und  : 
+   Emoji and Tags: 
+         'joy': 35508,
+         'sad': 6930,
+         'anger': 1350,
+         'fear': 1223,
+         'surprise': 803,
+         'disgust': 137,
+         'trust': 5,
+         'anticipation': 1
+   Emoji: 
+         'joy': 35479,
+         'sad': 6930,
+         'anger': 1347,
+         'fear': 1223,
+         'surprise': 802,
+         'disgust': 136,
+         'anticipation': 0,
+         'trust': 0
+   Tags: 
+         'joy': 34,
+         'trust': 5,
+         'anger': 3,
+         'surprise': 1,
+         'anticipation': 1,
+         'disgust': 1,
+         'fear': 0,
+         'sad': 0
+
+ar  : 
+   Emoji and Tags: 
+         'joy': 32079,
+         'sad': 10857,
+         'anger': 997,
+         'fear': 982,
+         'surprise': 464,
+         'disgust': 46,
+         'anticipation': 0,
+         'trust': 0
+   Emoji: 
+         'joy': 32079,
+         'sad': 10857,
+         'anger': 997,
+         'fear': 982,
+         'surprise': 464,
+         'disgust': 46,
+         'anticipation': 0,
+         'trust': 0
+   Tags: 
+         'surprise': 0,
+         'anticipation': 0,
+         'disgust': 0,
+         'trust': 0,
+         'fear': 0,
+         'joy': 0,
+         'sad': 0,
+         'anger': 0
+
+pt  : 
+   Emoji and Tags: 
+         'joy': 17744,
+         'sad': 3307,
+         'anger': 778,
+         'fear': 703,
+         'surprise': 179,
+         'disgust': 45,
+         'anticipation': 0,
+         'trust': 0
+   Emoji: 
+         'joy': 17740,
+         'sad': 3307,
+         'anger': 778,
+         'fear': 703,
+         'surprise': 179,
+         'disgust': 45,
+         'anticipation': 0,
+         'trust': 0
+   Tags: 
+         'joy': 7,
+         'surprise': 0,
+         'anticipation': 0,
+         'disgust': 0,
+         'trust': 0,
+         'fear': 0,
+         'sad': 0,
+         'anger': 0
+
+tl  : 
+   Emoji and Tags: 
+         'joy': 12679,
+         'sad': 3072,
+         'fear': 536,
+         'anger': 480,
+         'surprise': 148,
+         'disgust': 22,
+         'anticipation': 0,
+         'trust': 0
+   Emoji: 
+         'joy': 12679,
+         'sad': 3071,
+         'fear': 536,
+         'anger': 480,
+         'surprise': 148,
+         'disgust': 22,
+         'anticipation': 0,
+         'trust': 0
+   Tags: 
+         'joy': 1,
+         'sad': 1,
+         'surprise': 0,
+         'anticipation': 0,
+         'disgust': 0,
+         'trust': 0,
+         'fear': 0,
+         'anger': 0
+
+in  : 
+   Emoji and Tags: 
+         'joy': 10924,
+         'sad': 2331,
+         'fear': 748,
+         'anger': 467,
+         'surprise': 233,
+         'disgust': 49,
+         'anticipation': 0,
+         'trust': 0
+   Emoji: 
+         'joy': 10921,
+         'sad': 2331,
+         'fear': 748,
+         'anger': 467,
+         'surprise': 233,
+         'disgust': 49,
+         'anticipation': 0,
+         'trust': 0
+   Tags: 
+         'joy': 4,
+         'surprise': 0,
+         'anticipation': 0,
+         'disgust': 0,
+         'trust': 0,
+         'fear': 0,
+         'sad': 0,
+         'anger': 0
+
+fr  : 
+   Emoji and Tags: 
+         'joy': 11006,
+         'sad': 1751,
+         'fear': 649,
+         'anger': 562,
+         'surprise': 224,
+         'disgust': 15,
+         'anticipation': 0,
+         'trust': 0
+   Emoji: 
+         'joy': 11003,
+         'sad': 1751,
+         'fear': 649,
+         'anger': 562,
+         'surprise': 223,
+         'disgust': 15,
+         'anticipation': 0,
+         'trust': 0
+   Tags: 
+         'joy': 3,
+         'surprise': 1,
+         'anticipation': 0,
+         'disgust': 0,
+         'trust': 0,
+         'fear': 0,
+         'sad': 0,
+         'anger': 0
+
+tr  : 
+   Emoji and Tags: 
+         'joy': 6528,
+         'sad': 617,
+         'anger': 315,
+         'fear': 262,
+         'surprise': 184,
+         'disgust': 9,
+         'anticipation': 0,
+         'trust': 0
+   Emoji: 
+         'joy': 6526,
+         'sad': 617,
+         'anger': 315,
+         'fear': 262,
+         'surprise': 184,
+         'disgust': 9,
+         'anticipation': 0,
+         'trust': 0
+   Tags: 
+         'joy': 3,
+         'surprise': 0,
+         'anticipation': 0,
+         'disgust': 0,
+         'trust': 0,
+         'fear': 0,
+         'sad': 0,
+         'anger': 0
+
+cs  : 
+   Emoji and Tags: 
+         'joy': 172,
+         'sad': 24,
+         'fear': 7,
+         'anger': 6,
+         'surprise': 3,
+         'anticipation': 0,
+         'disgust': 0,
+         'trust': 0
+   Emoji: 
+         'joy': 172,
+         'sad': 24,
+         'fear': 7,
+         'anger': 6,
+         'surprise': 3,
+         'anticipation': 0,
+         'disgust': 0,
+         'trust': 0
+   Tags: 
+         'surprise': 0,
+         'anticipation': 0,
+         'disgust': 0,
+         'trust': 0,
+         'fear': 0,
+         'joy': 0,
+         'sad': 0,
+         'anger': 0
+
+
+Not sure when this was done:
+en Counter({'total': 20131, 'joy': 14810, 'sad': 3545, 'anger': 669, 'fear': 625, 'surprise': 445, 'disgust': 37})
+pt Counter({'total': 6057, 'joy': 4631, 'sad': 908, 'fear': 229, 'anger': 167, 'surprise': 110, 'disgust': 12})
+ar Counter({'total': 5820, 'joy': 4230, 'sad': 1294, 'anger': 129, 'fear': 109, 'surprise': 54, 'disgust': 4})
+UNKNOWN Counter({'total': 5169, 'joy': 3600, 'sad': 1017, 'anger': 231, 'fear': 192, 'surprise': 108, 'disgust': 21})
+es Counter({'total': 4155, 'joy': 3089, 'sad': 614, 'anger': 207, 'fear': 167, 'surprise': 73, 'disgust': 5})
+fr Counter({'total': 2688, 'joy': 2021, 'sad': 364, 'fear': 139, 'anger': 111, 'surprise': 48, 'disgust': 5})
+ca Counter({'total': 2095, 'joy': 1597, 'sad': 266, 'fear': 90, 'anger': 73, 'surprise': 64, 'disgust': 5})
+it Counter({'total': 1498, 'joy': 1183, 'sad': 193, 'fear': 60, 'anger': 38, 'surprise': 21, 'disgust': 3})
+tr Counter({'total': 1126, 'joy': 930, 'sad': 88, 'anger': 47, 'fear': 31, 'surprise': 29, 'disgust': 1})
+la Counter({'total': 1015, 'joy': 821, 'sad': 126, 'surprise': 29, 'anger': 20, 'fear': 17, 'disgust': 2})
+ja Counter({'total': 997, 'joy': 689, 'sad': 160, 'fear': 53, 'anger': 47, 'surprise': 41, 'disgust': 7})
+nl Counter({'total': 797, 'joy': 644, 'sad': 100, 'fear': 26, 'anger': 16, 'surprise': 11, 'disgust': 0})
+nso Counter({'total': 751, 'joy': 563, 'sad': 119, 'surprise': 32, 'anger': 18, 'fear': 18, 'disgust': 1})
+nb Counter({'total': 630, 'joy': 490, 'sad': 95, 'fear': 19, 'anger': 14, 'surprise': 12, 'disgust': 0})
+de Counter({'total': 561, 'joy': 425, 'sad': 70, 'surprise': 26, 'fear': 24, 'anger': 16, 'disgust': 0})

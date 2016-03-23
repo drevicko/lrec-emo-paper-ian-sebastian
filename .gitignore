@@ -1,0 +1,15 @@
+*.synctex.gz
+*.bbl
+*.blg
+*.pdf_latexmk
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.vrb
+*.fls
+*.fdb_latexmk
+*conflicted copy*
+*.sublime-project
+*.sublime-workspace
