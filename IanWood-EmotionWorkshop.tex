@@ -13,21 +13,15 @@
 % Confirmation Number:	16
 % Submission Passcode:	16X-E3E3G2G7P2
  
-
 \title{Emoji as Emotion Tags for Tweets}
 
-% where do you want to add me as author here? After you, or after Sanchez?
 \name{Ian D. Wood, Sebastian Ruder}
 
-\address{Insight Centre for Data Analytics,  Aylien \ldots\\
-         National University of Ireland, Galway; \ldots \\
+\address{Insight Centre for Data Analytics; Aylien Ltd.\\
+         National University of Ireland, Galway; Dublin, Ireland\\
 % * <subscriptions@drevicko.com> 2016-03-25T15:37:45.429Z:
-%
-% Sebastian: how do you want to be identified? If Aylien, we need an address.
-%
 % ^.
-         ian.wood@insight-centre.org, sebastian@aylien.com\\}
-
+         \texttt{firstname.lastname@insight-centre.org}}
 
 \abstract{
 In many natural language processing tasks, supervised machine learning approaches have proved most effective, and substantial effort has been made into collecting and annotating corpora for building such models.
@@ -109,6 +103,30 @@ There are a few choices and difficulties in selecting these emoji that should be
 First, it was difficult to identify emoji that clearly indicated disgust. 
 An emoji image with green vomit has been used in some places, including Face Book, however this is not part of the Unicode official emoji set (though is slated for release in 2016) and does not currently appear in Twitter.
 
+\begin{table*}
+\centering
+	\begin{tabular}{c | r | r | r | r | r | r | r}
+\textbf{Language} & \textbf{Total} & \textbf{Joy} & \textbf{Sadness} & \textbf{Anger} & \textbf{Fear} & \textbf{Surprise} & \textbf{Disgust}  \\\hline
+en  & 190,591 & 136,623 & 36,797 & 7,658 & 6,060 & 2,943 & 510 \\
+ja  & 99,032 & 68,215 & 17,397 & 4,595 & 4,585 & 3,631 & 609 \\
+es  & 65,281 & 45,809 & 11,773 & 3,877 & 2,532 & 1,176 & 114 \\
+UNK  & 56,597 & 42,535 & 9,217 & 1,959 & 1,624 & 1,033 & 229\\
+ar  & 44,026 & 29,976 & 11,216 & 1,114 & 1,084 & 5,72 & 64 \\
+pt  & 29,259 & 21,987 & 4,894 & 1,208 & 8,89 & 233 & 48 \\
+tl  & 20,438 & 14,721 & 4,096 & 752 & 656 & 176 & 37 \\
+in  & 18,910 & 13,578 & 3,175 & 1,018 & 738 & 323 & 78 \\
+fr  & 13,848 & 10,567 & 1,821 & 651 & 572 & 213 & 24\\
+tr  & 8,644 & 6,935 & 773 & 419 & 305 & 201 & 11\\
+ko  & 7,242 & 5,980 & 916 & 142 & 113 & 87 & 4\\
+ru  & 5,484 & 4,024 & 646 & 411 & 317 & 74 & 12\\
+it  & 4,086 & 3,391 & 376 & 156 & 119 & 34 & 10 \\
+th  & 3,828 & 2,461 & 857 & 227 & 156 & 124 & 3\\
+de  & 2,773 & 2,262 & 235 & 119 & 81 & 69 & 7
+\end{tabular}
+	\caption{Number of collected tweets per emoji for the top 15 languages (displayed with their ISO 639-1 codes). UNK: unknown language.}
+	\label{tbl:top-ten-langs}
+\end{table*}
+
 The second difficulty concerns the interpretation and popular usage of emoji. 
 All emoji have an intended interpretation (indicated by their description in the official unicode list), however it is not guaranteed that their popular usage will align with the description. 
 The choices made in this study were intended as a proof of concept, drawing on the personal experiences of a small group of people. 
@@ -135,70 +153,92 @@ Over a two week collection period, we collected a total of over half a million t
 Note that all the tweet counts provided below do not include retweets. 
 These are considered to bias the natural distribution of word frequencies due to the power-law distribution of retweet frequencies and the fact that a retweet contains verbatim text from the original tweet.
 
+\section{Evaluation}
 
-\begin{table}
-	\begin{tabular}{crrrr}
-Language & total & joy & sad & anger \\
-	\hline \\
-en  & 190591 & 136623 & 36797 & 7658 \\
-ja  & 99032 & 68215 & 17397 & 4595 \\
-es  & 65281 & 45809 & 11773 & 3877 \\
-und  & 56597 & 42535 & 9217 & 1959 \\
-ar  & 44026 & 29976 & 11216 & 1114 \\
-pt  & 29259 & 21987 & 4894 & 1208 \\
-tl  & 20438 & 14721 & 4096 & 752 \\
-in  & 18910 & 13578 & 3175 & 1018 \\
-fr  & 13848 & 10567 & 1821 & 651 \\
-tr  & 8644 & 6935 & 773 & 419 \\
-ko  & 7242 & 5980 & 916 & 142 \\
-ru  & 5484 & 4024 & 646 & 411 \\
-it  & 4086 & 3391 & 376 & 156 \\
-th  & 3828 & 2461 & 857 & 227 \\
-de  & 2773 & 2262 & 235 & 119 \\
-	\end{tabular}
-	\caption{Top 15 Languages; total tweet counts and tweets containing joy, sad and anger emoji  (``und'' = undetermined language).}
-	\label{tbl:top-ten-langs}
-\end{table}
+We carry out two forms of evaluation: Firstly, in section \ref{sec:classifier_evaluation}, we evaluate the quality of classifiers trained using emoji-labeled data; secondly, in section \ref{sec:emoji_evaluation}, we evaluate the quality of the chosen emojis as emotion indicators.
 
-\begin{table}
-	\begin{tabular}{crrr}
-Language & fear & surprise & disgust \\
-	\hline \\
-en & 6060 & 2943 & 510 \\
-ja & 4585 & 3631 & 609 \\
-es & 2532 & 1176 & 114 \\
-und & 1624 & 1033 & 229 \\
-ar & 1084 & 572 & 64 \\
-pt & 889 & 233 & 48 \\
-tl & 656 & 176 & 37 \\
-in & 738 & 323 & 78 \\
-fr & 572 & 213 & 24 \\
-tr & 305 & 201 & 11 \\
-ko & 113 & 87 & 4 \\
-ru & 317 & 74 & 12 \\
-it & 119 & 34 & 10 \\
-th & 156 & 124 & 3 \\
-de & 81 & 69 & 7 \\
-	\end{tabular}
-	\caption{Top 15 Languages; tweets containing fear, surprise and disgust emoji (``und'' = undetermined language).}
-	\label{tbl:top-ten-langs-2}
-\end{table}
-
-\section{Evaluation Plan}
-Two forms of evaluation will be carried out. First, we will train support vector machine models on the collected data for each basic emotion. 
+\subsection{Evaluation of classifiers} \label{sec:classifier_evaluation}
+First, we will train support vector machine models on the collected data for each basic emotion. 
 Cross-validation will be carried out on the collected data and a final model will be applied to the SemEval2007 data set~\cite{Strapparava2007Semeval2007} then compared to results from that competition as well as cross validation results for the same model trained on SemEval2007 data.
 Features for these model will include word, ngram, hash tag and emoji tokens as well as emotion scores calculated with the hash tag emotion lexicon~\cite{Mohammad2012Emotional}. Note that there is evidence that term usage in social media can be useful for detection of emotions in media such as news articles~\cite{Mohammad2012Emotional}.
-For the second evaluation, we will provide manual annotations of a small subset of tweets (with emotion-indicative emoji removed).
 
 {\em Note to reviewers}: It is unfortunate that we have not been able to perform these evaluations prior to writing this abstract, however we submit in any case due to the important prospect of new and easily obtainable labelled data. It is also likely that during the coming week, at the end of which final papers for the workshop should be completed, that we will complete the automated evaluation and a small manual evaluation. If not, I propose to withdraw the paper and wait for a future venue. This would be a shame, as this workshop would seem the most appropriate venue for this work.
 
+\subsection{Evaluation of emojis} \label{sec:emoji_evaluation}
+
+For the second evaluation, we selected a random subset of 360 of the collected English tweets. For these, we removed emotion-indicate emojis and created an annotation task asking the annotator to annotate all emotions expressed in the text.
+
+In past research using crowd-sourcing, usually three annotators annotate a tweet. As emotion annotation is notoriously ambiguous, we increased the number of annotators. In total, 17 annotators annotated between 60 and 360 of the provided tweets, providing us with a large sample of different annotations.
+
+For calculating inter-annotator agreement, we use Fleiss' kappa as this (in contrast to Cohen's kappa) allows us to take into account (parital) annotations by more than two annotators. We weight each annotation with $ 6 / n_{ij}$ where $n_{ij}$ is the number of emotions annotated by annotator $i$ for tweet $j$ in order to prevent a bias towards annotators that favor multiple emotions. This yields $\kappa$ of 0.51, which signifies moderate agreement, a value in line with previous reported research.
+
+To gain an understanding of the correlation, between emotions and emojis, we calculate PMI scores between emojis and emotions. We first calculate PMI scores between emojis and the emotion chosen by most annotators per tweet (scores are similar for emotions selected by the majority), which we show in Table \ref{tab:pmi_results_top_emotions}.
+
+\begin{table}
+\centering
+\begin{tabular}{c | r | r | r | r | r | r | r}
+ & \textbf{Joy} & \textbf{Dis.} & \textbf{Sur.} & \textbf{Fear} & \textbf{Sad.} & \textbf{Ang.} & \textbf{\O} \\\hline
+\textbf{Joy} & \textbf{.40} & -.53 & .08 & -.59 & -.59 & -.62 & -.12 \\
+\textbf{Dis.} & .01 & \textbf{.33} & -.11 & -.02 & -.24 & -.27 & .17 \\
+\textbf{Sur.} & -.49 & .31 & \textbf{.64} & -1.00 & -.03 & -.29 & .15 \\
+\textbf{Fear} & .12 & -.16 & -.12 & \textbf{.66} & -.14 & -.07 & -.03 \\
+\textbf{Sad.} & .11 & -.68 & -.58 & \textbf{.76} & .66 & -.37 & -.69 \\
+\textbf{Ang.} & -.58 & .71 & -.22 & -.13 & -.35 & \textbf{.87} & .06
+\end{tabular}
+\caption{PMI scores between emojis and emotions chosen by most annotators per tweet. Emoji $\downarrow$, emotion $\rightarrow$. \O: No emotion.}
+\label{tab:pmi_results_top_emotions}
+\end{table}
+
+Note that among all emojis, emotions are correlated most highly with their corresponding emojis. Anger and -- to a lesser degree -- surprise emojis are also correlated with disgust, while we observe a high correlation between sadness emojis and fear. Additionally, some emojis that we have associated with sadness and fear seem to be somewhat ambiguous, showcasing a slight correlation with joy.
+
+Calculating PMI scores not only between emojis and those emotions, which have been selected by the most annotators for each tweet, but all selected emotions produces a slightly different picture, which we show in Table \ref{tab:pmi_results_all_emotions}.
+
+\begin{table}[]
+\centering
+\begin{tabular}{c | r | r | r | r | r | r | r}
+ & \textbf{Joy} & \textbf{Dis.} & \textbf{Sur.} & \textbf{Fear} & \textbf{Sad.} & \textbf{Ang.} & \textbf{\O} \\\hline
+\textbf{Joy} & \textbf{.32} & -.35 & .04 & -.24 & -.56 & -.46 & -.27 \\
+\textbf{Dis.} & -.17 & \textbf{.27} & -.36 & -.14 & .09 & .11 & .17 \\
+\textbf{Sur.} & -.23 & .20 & .35 & \textbf{.63} & -.27 & -.13 & -.03 \\
+\textbf{Fear} & .23 & -.31 & .29 & \textbf{.31} & .16 & -.20 & .22 \\
+\textbf{Sad.} & .16 & -.33 & -.08 & -.13 & \textbf{.26} & -.16 & -.57 \\
+\textbf{Ang.} & -.50 & .48 & -.15 & .09 & .21 & \textbf{.61} & .06
+\end{tabular}
+\caption{PMI scores between emojis and all annotated emotions. Emoji $\downarrow$, emotion $\rightarrow$. \O: No emotion.}
+\label{tab:pmi_results_all_emotions}
+\end{table}
+
+The overall correlations still persist; an investigation of scores where the sign has changed reveals new insights: Surprise and fear are closely correlated now, with surprise emojis showing a strong correlation with fear, while fear emojis are correlated with surprise. This interaction wasn't evident before, having been eclipsed by the prevalence of fear and sadness. Additionally, disgust emojis now show a slight correlation with sadness and anger, fear emojis with sadness, and anger emojis with fear and sadness.
+
+Finally, we calculate precision, recall, and F1 using the emojis contained in each tweet as predicted labels. We calculate scores both using the emotion chosen by most annotators per tweet (as in Table \ref{tab:pmi_results_top_emotions}) and all emotions (as in Table \ref{tab:pmi_results_all_emotions}) as gold label and show results in Table \ref{tab:precision_emojis}.
+
+\begin{table}[]
+\centering
+\begin{tabular}{l | c | c | c | c | c | c}
+\textbf{Emotion} & \textbf{P$_{top}$} & \textbf{R$_{top}$} & \textbf{F1$_{top}$} & \textbf{P$_{all}$} & \textbf{R$_{all}$} & \textbf{F1$_{all}$} \\\hline
+Joy & 0.51 & 0.45 & 0.48 & 0.67 & 0.41 & 0.51 \\
+Disgust & 0.13 & 0.24 & 0.17 & 0.33 & 0.21 & 0.26 \\
+Surprise & 0.24 & 0.33 & 0.28 & 0.57 & 0.29 & 0.38 \\
+Fear & 0.03 & 0.33 & 0.06 & 0.13 & 0.24 & 0.17 \\
+Sadness & 0.32 & 0.45 & 0.38 & 0.33 & 0.17 & 0.22 \\
+Anger & 0.21 & 0.45 & 0.28 & 0.39 & 0.19 & 0.25
+\end{tabular}
+\caption{Precision, recall, and F1 scores for emojis predicting annotated emotions. $_{top}$: emotion selected by most annotators used as gold label. $_{all}$: all emotions chosen by annotators used as gold labels.}
+\label{tab:precision_emojis}
+\end{table}
+
+As we can see, joy emojis are the best at predicting their corresponding emotion, while fear is generally the most ambiguous. Fear emojis are present in many more tweets that are predominantly associated in fear and even when taking into account weak associations, only about every eighth tweet containing a fear emoji is also associated with fear. Disgust, anger, and sadness are similarly present in only about every third tweet containing a corresponding emoji, although sadness usually dominates when it is present. While surprise is less often the dominating emotion, its emojis are the second-best emotion indicators in tweets.
+
 \section{Conclusion}
-% We present an approach that promises to provide substantial data sets with quality emotion annotation
+% We present an approach that promisesPbegin{table}[]
+
 We have collected a substantial and multilingual data set of tweets containing emotion-specific emoji in a short time. We argue that we can expect these emoji to perform well as ground truth indicators of tweet emotion content and propose evaluations of that claim. 
 The lack of large, quality annotated data for emotion detection in social media and other text is a substantial barrier to continued research efforts in that area, and the approach presented here promises to provide some relief.
 
 \section*{Acknowledgements}
-TODO\ldots
+
+This publication has emanated from research supported by a research grant from Science Foundation Ireland (SFI) under Grant Number SFI/12/RC/2289.
+This project has emanated in part from research conducted with the financial support of the Irish Research Council (IRC) under Grant Number EBPPG/2014/30 and with Aylien Ltd. as Enterprise Partner. 
 
 % \nocite{*}
 \section{Bibliographical References}
@@ -207,10 +247,6 @@ TODO\ldots
 \bibliographystyle{lrec2016}
 % \bibliography{xample}
 \bibliography{Remote}
-
-% \section{Language Resource References}
-% \label{lr:ref}
-% \bibliographystylelanguageresource{lrec2016}
 % \bibliographylanguageresource{xample}
 
 \end{document}
