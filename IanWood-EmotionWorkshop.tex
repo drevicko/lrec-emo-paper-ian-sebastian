@@ -172,11 +172,21 @@ In past research using crowd-sourcing, usually three annotators annotate a tweet
 
 For calculating inter-annotator agreement, we use Fleiss' kappa as this (in contrast to Cohen's kappa) allows us to take into account (parital) annotations by more than two annotators. We weight each annotation with $ 6 / n_{ij}$ where $n_{ij}$ is the number of emotions annotated by annotator $i$ for tweet $j$ in order to prevent a bias towards annotators that favor multiple emotions. This yields $\kappa$ of 0.51, which signifies moderate agreement, a value in line with previous reported research.
 
-To gain an understanding of the correlation, between emotions and emojis, we calculate PMI scores between emojis and emotions. We first calculate PMI scores between emojis and the emotion chosen by most annotators per tweet (scores are similar for emotions selected by the majority), which we show in Table \ref{tab:pmi_results_top_emotions}.
+To gain an understanding of the correlation, between emoti% * <subscriptions@drevicko.com> 2016-03-29T09:55:15.097Z:
+%
+% could remove explanation of Fleiss kappa if we need to save space
+%
+% ^.
+ons and emojis, we calculate PMI scores between emojis and emotions. We first calculate PMI scores between emojis and the emotion chosen by most annotators per tweet (scores are similar for emotions selected by the majority), which we show in Table \ref{tab:pmi_results_top_emotions}.
 
 \begin{table}[!ht]
 \centering
-\begin{tabular}{c | r | r | r | r | r | r | r}
+\begin{tabular}{c | r | r | r | r% * <subscriptions@drevicko.com> 2016-03-29T09:59:45.880Z:
+%
+% we could look for an easier to follow description of the "emotion by vote" vs "all emotion annotations" schemes..
+%
+% ^.
+ | r | r | r}
  & \textbf{Joy} & \textbf{Dis.} & \textbf{Sur.} & \textbf{Fear} & \textbf{Sad.} & \textbf{Ang.} & \textbf{\O} \\\hline
 \textbf{Joy} & \textbf{.40} & -.53 & .08 & -.59 & -.59 & -.62 & -.12 \\
 \textbf{Dis.} & .01 & \textbf{.33} & -.11 & -.02 & -.24 & -.27 & .17 \\
@@ -195,7 +205,12 @@ Calculating PMI scores not only between emojis and those emotions, which have be
 
 \begin{table}[!ht]
 \centering
-\begin{tabular}{c | r | r | r | r | r | r | r}
+\begin{tabular}{c | r | r | r |% * <subscriptions@drevicko.com> 2016-03-29T10:01:02.986Z:
+%
+% as above ... the emotion selection schemes could be described more clearly
+%
+% ^.
+ r | r | r | r}
  & \textbf{Joy} & \textbf{Dis.} & \textbf{Sur.} & \textbf{Fear} & \textbf{Sad.} & \textbf{Ang.} & \textbf{\O} \\\hline
 \textbf{Joy} & \textbf{.32} & -.35 & .04 & -.24 & -.56 & -.46 & -.27 \\
 \textbf{Dis.} & -.17 & \textbf{.27} & -.36 & -.14 & .09 & .11 & .17 \\
@@ -242,7 +257,12 @@ This project has emanated in part from research conducted with the financial sup
 
 % \nocite{*}
 \section{Bibliographical References}
-\label{main:ref}
+\label{m% * <subscriptions@drevicko.com> 2016-03-29T10:05:01.606Z:
+%
+% we should acknowledge MixedEmotions also
+%
+% ^.
+ain:ref}
 
 \bibliographystyle{lrec2016}
 % \bibliography{xample}
