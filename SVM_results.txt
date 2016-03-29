@@ -1,14 +1,5 @@
 # Linear SVM with default balancing on non-annoated, emo-emoji tweets
 
-## with 3-fold cross-validation, EACH emo-emoji excluded
-            Precision  Recall   F1
-       joy:   0.959    0.951    0.955
-   disgust:   0.347    0.189    0.245
-  surprise:   0.539    0.510    0.524
-      fear:   0.606    0.556    0.580
-       sad:   0.759    0.765    0.762
-     anger:   0.793    0.767    0.780
-
 ## with 3-fold cross-validation, ALL emo-emoji excluded
             Precision  Recall   F1
        joy:   0.836    0.825    0.830
@@ -17,16 +8,6 @@
       fear:   0.065    0.080    0.072
        sad:   0.385    0.416    0.400
      anger:   0.120    0.135    0.127
-
-##with 3-fold cross-validation, small docs excluded, EACH emo-emoji excluded
-            Precision  Recall   F1
-       joy:   0.959    0.950    0.955
-   disgust:   0.525    0.205    0.295
-  surprise:   0.589    0.499    0.541
-      fear:   0.648    0.572    0.608
-       sad:   0.759    0.758    0.759
-     anger:   0.828    0.772    0.799
-*MINOR ADVANTAGE OVER INCLUDING SMALL DOCS WITH EACH EXCLUDED*
 
 
 ##with 3-fold cross-validation, small docs excluded, ALL emo-emoji excluded
@@ -50,9 +31,39 @@
      anger:   0.121    0.120    0.121
 
 
+## with 3-fold cross-validation, EACH emo-emoji excluded
+            Precision  Recall   F1
+       joy:   0.959    0.951    0.955
+   disgust:   0.347    0.189    0.245
+  surprise:   0.539    0.510    0.524
+      fear:   0.606    0.556    0.580
+       sad:   0.759    0.765    0.762
+     anger:   0.793    0.767    0.780
+
+##with 3-fold cross-validation, small docs excluded, EACH emo-emoji excluded
+            Precision  Recall   F1
+       joy:   0.959    0.950    0.955
+   disgust:   0.525    0.205    0.295
+  surprise:   0.589    0.499    0.541
+      fear:   0.648    0.572    0.608
+       sad:   0.759    0.758    0.759
+     anger:   0.828    0.772    0.799
+*MINOR ADVANTAGE OVER INCLUDING SMALL DOCS WITH EACH EXCLUDED*
+
+
+##with 3-fold cross-validation, small docs excluded, EACH emo-emoji excluded, BINARY features
+            Precision  Recall   F1
+       joy:   0.959    0.951    0.955
+   disgust:   0.513    0.211    0.300
+  surprise:   0.585    0.504    0.542
+      fear:   0.650    0.577    0.611
+       sad:   0.759    0.762    0.761
+     anger:   0.819    0.768    0.792
+
+
+
 ## with 3-fold cross-validation, each emo-emoji excluded
 it took 415 seconds (0:06:55.427325 h:mm:ss.s)
-
 P,R,F1,Accuracy, TP, FP, TN, FN
 {'anger': (0.79260017923441306,
            0.76725740488288507,
@@ -311,3 +322,56 @@ P,R,F1,Accuracy, TP, FP, TN, FN
               3110,
               174683,
               2747)}
+
+
+##with 3-fold cross-validation, small docs excluded, EACH emo-emoji excluded, BINARY features
+it took 377 seconds (0:06:17.404853 h:mm:ss.s)
+P,R,F1,Accuracy, TP, FP, TN, FN
+{'anger': (0.81883656509695291,
+           0.76759283303038173,
+           0.79238707947996256,
+           0.98288435614682546,
+           5912,
+           1308,
+           171994,
+           1790),
+ 'disgust': (0.5133689839572193,
+             0.21145374449339208,
+             0.29953198127925124,
+             0.99751948776593691,
+             96,
+             91,
+             180466,
+             358),
+ 'fear': (0.64968506854390518,
+          0.57737899242673696,
+          0.6114016736401674,
+          0.97537030182153694,
+          3507,
+          1891,
+          173036,
+          2567),
+ 'joy': (0.95859893540119601,
+         0.95089198409421782,
+         0.95472990662361457,
+         0.93112528559495034,
+         131283,
+         5670,
+         37030,
+         6780),
+ 'sad': (0.75946685260673674,
+         0.76155004571612972,
+         0.76050702258506331,
+         0.90144821832126021,
+         28319,
+         8969,
+         134826,
+         8867),
+ 'surprise': (0.58539505187549878,
+              0.50429700928154009,
+              0.54182825484764552,
+              0.98629357494061098,
+              1467,
+              1039,
+              177062,
+              1442)}

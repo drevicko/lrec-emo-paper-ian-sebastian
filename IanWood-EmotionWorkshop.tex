@@ -103,7 +103,7 @@ There are a few choices and difficulties in selecting these emoji that should be
 First, it was difficult to identify emoji that clearly indicated disgust. 
 An emoji image with green vomit has been used in some places, including Face Book, however this is not part of the Unicode official emoji set (though is slated for release in 2016) and does not currently appear in Twitter.
 
-\begin{table*}
+\begin{table*}[!ht]
 \centering
 	\begin{tabular}{c | r | r | r | r | r | r | r}
 \textbf{Language} & \textbf{Total} & \textbf{Joy} & \textbf{Sadness} & \textbf{Anger} & \textbf{Fear} & \textbf{Surprise} & \textbf{Disgust}  \\\hline
@@ -174,7 +174,7 @@ For calculating inter-annotator agreement, we use Fleiss' kappa as this (in cont
 
 To gain an understanding of the correlation, between emotions and emojis, we calculate PMI scores between emojis and emotions. We first calculate PMI scores between emojis and the emotion chosen by most annotators per tweet (scores are similar for emotions selected by the majority), which we show in Table \ref{tab:pmi_results_top_emotions}.
 
-\begin{table}
+\begin{table}[!ht]
 \centering
 \begin{tabular}{c | r | r | r | r | r | r | r}
  & \textbf{Joy} & \textbf{Dis.} & \textbf{Sur.} & \textbf{Fear} & \textbf{Sad.} & \textbf{Ang.} & \textbf{\O} \\\hline
@@ -193,7 +193,7 @@ Note that among all emojis, emotions are correlated most highly with their corre
 
 Calculating PMI scores not only between emojis and those emotions, which have been selected by the most annotators for each tweet, but all selected emotions produces a slightly different picture, which we show in Table \ref{tab:pmi_results_all_emotions}.
 
-\begin{table}[]
+\begin{table}[!ht]
 \centering
 \begin{tabular}{c | r | r | r | r | r | r | r}
  & \textbf{Joy} & \textbf{Dis.} & \textbf{Sur.} & \textbf{Fear} & \textbf{Sad.} & \textbf{Ang.} & \textbf{\O} \\\hline
@@ -212,7 +212,7 @@ The overall correlations still persist; an investigation of scores where the sig
 
 Finally, we calculate precision, recall, and F1 using the emojis contained in each tweet as predicted labels. We calculate scores both using the emotion chosen by most annotators per tweet (as in Table \ref{tab:pmi_results_top_emotions}) and all emotions (as in Table \ref{tab:pmi_results_all_emotions}) as gold label and show results in Table \ref{tab:precision_emojis}.
 
-\begin{table}[]
+\begin{table}[!ht]
 \centering
 \begin{tabular}{l | c | c | c | c | c | c}
 \textbf{Emotion} & \textbf{P$_{top}$} & \textbf{R$_{top}$} & \textbf{F1$_{top}$} & \textbf{P$_{all}$} & \textbf{R$_{all}$} & \textbf{F1$_{all}$} \\\hline
