@@ -47,7 +47,9 @@ manual annotation of a subset of collected tweets.
 \maketitleabstract
 
 \section{Previous Work}
-A previous study examined emoji in combination with selected hash tags and emoticons to build statistical models of emotion based on Plutchik's emotion scheme, which has 8 emotions in pairs of emotional opposites~\cite{Suttles2013Distant}. 
+% A previous study examined emoji in combination with selected hash tags and emoticons to build statistical models of emotion based on Plutchik's emotion scheme, which has 8 emotions in pairs of emotional opposites~\cite{Suttles2013Distant}. 
+Purver and Battersby~\shortcite{Purver2012} also use distant supervision labels for detecting Ekman’s six emotions in Twitter, in their case hashtags and emoticons. They conduct several experiments to assess the quality of classifier to identify and discriminate between different emotions. A survey reveals that emoticons associated with anger, surprise, and disgust are ambiguous. Generally, they find that emoticons are unreliable labels for most emotions besides happiness and sadness.
+In another study, Suttles and Ide~\shortcite{Suttles2013Distant} examine hashtags, emoticons, as well as emoji as distantly supervised labels to detect Plutchik’s eight emotions, constructing a binary classifier for each pair of polar opposites. In order to create a multi-way classifier, they require four additional neutral binary classifiers. 
 
 \section{Emotion Expression in Text Only Communication}
 \label{sec:emotion_expression_in_text_only_communication}
