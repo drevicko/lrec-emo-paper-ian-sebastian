@@ -248,13 +248,34 @@ As we can see, joy emojis are the best at predicting their corresponding emotion
 
 \subsection{Evaluation of classifiers}
 \label{sec:classifier_evaluation}
-First, we will train support vector machine models on the collected data for each basic emotion. 
-Cross-validation will be carried out on the collected data and a final model 
-% will be applied to the SemEval2007 data set~\cite{Strapparava2007Semeval2007} then 
-compared to results from that competition as well as cross validation results for the same model trained on SemEval2007 data.
-Features for these model will include word, ngram, hash tag and emoji tokens as well as emotion scores calculated with the hash tag emotion lexicon~\cite{Mohammad2012Emotional}. Note that there is evidence that term usage in social media can be useful for detection of emotions in media such as news articles~\cite{Mohammad2012Emotional}.
+We will trained linear support vector machine (SVM) classifiers with n-gram features (up to 5-grams) on the collected data (excluding annotated tweets --- see Section~\ref{sec:emoji_evaluation}), one for each basic emotion. 
+Parameter selection was carried out via a grid search and 3-fold cross-validation.
+N-grams containing any of the selected emoji (for any emotion) were excluded from the feature set.
+% Cross-validation will be carried out on the collected data and a final model 
+%% will be applied to the SemEval2007 data set~\cite{Strapparava2007Semeval2007} then 
+Final models were trained with selected parameters and applied to annotated tweets. 
+% compared to results from that competition as well as cross validation results for the same model trained on SemEval2007 data.
 
-{\em Note to reviewers}: It is unfortunate that we have not been able to perform these evaluations prior to writing this abstract, however we submit in any case due to the important prospect of new and easily obtainable labelled data. It is also likely that during the coming week, at the end of which final papers for the workshop should be completed, that we will complete the automated evaluation and a small manual evaluation. If not, I propose to withdraw the paper and wait for a future venue. This would be a shame, as this workshop would seem the most appropriate venue for this work.
+% Features for these model include word, ngram
+% , hash tag and emoji tokens as well as emotion scores calculated with the hash tag emotion lexicon~\cite{Mohammad2012Emotional}. 
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{c | c | c | c}
+\textbf{Emotion} & \textbf{Precision}  & \textbf{Recall} & \textbf{F1} \\
+\hline
+             joy & 0.80       & 0.97   & 0.87 \\
+         disgust & 0.06       & 0.08   & 0.07 \\
+            fear & 0.07       & 0.36   & 0.11 \\
+        surprise & 0.07       & 0.12   & 0.09 \\
+             sad & 0.39       & 0.63   & 0.48 \\
+           anger & 0.19       & 0.21   & 0.20 \\
+\end{tabular}
+\caption{Cross validation results for SVM classifiers with emoji sets as labels.}
+\label{tab:SVM-CV-results}
+\end{table}
+
+
 
 \section{Conclusion}
 % We present an approach that promisesPbegin{table}[]
