@@ -71,7 +71,7 @@ Facial expression emoji have become a common method for emotion communication in
 \section{Collecting Emoji Tweets}
 A selection of commonly used emoji\footnote{as indicated by http://emojitracker.com/} with clear emotional content were hand selected as emotion indicators and tweets that contained at least one of the selected emoji were collected. We used Ekman's emotion classification of six basic emotions~\cite{Ekman1992Argument} for our experiments.
 Another common scheme for categorical emotion classification was presented by Plutcik~\shortcite{plutchik1980general} and includes two extra basic emotions, trust and anticipation, however
-there were no emoji we considered clearly indicative of these emotions and Pevious research found~\cite{Suttles2013Distant} that emoji they chose for them are few and unreliable so they were not included here.
+there were no emoji we considered clearly indicative of these emotions. Pevious research found~\cite{Suttles2013Distant} that emoji they chose for them are few and unreliable so they were not included here.
 The selected emoji are indicated in Tables~\ref{tab:selected-emoji} and~\ref{tab:selected-emoji-codpoints}.
 
 \begin{table}
@@ -161,16 +161,22 @@ These are considered to bias the natural distribution of word frequencies due to
 
 \section{Evaluation}
 
-We carry out two forms of evaluation: Firstly, in section \ref{sec:classifier_evaluation}, we evaluate the quality of classifiers trained using emoji-labeled data; secondly, in section \ref{sec:emoji_evaluation}, we evaluate the quality of the chosen emojis as emotion indicators.
+We carry out two forms of evaluation: Firstly, 
+in Section~\ref{sec:emoji_evaluation}, we evaluate the quality of the chosen emojis as emotion indicators; secondly, 
+in Section~\ref{sec:classifier_evaluation}, we evaluate the quality of classifiers trained using emoji-labeled data.
 
 \subsection{Evaluation of classifiers} \label{sec:classifier_evaluation}
+
 First, we will train support vector machine models on the collected data for each basic emotion. 
-Cross-validation will be carried out on the collected data and a final model will be applied to the SemEval2007 data set~\cite{Strapparava2007Semeval2007} then compared to results from that competition as well as cross validation results for the same model trained on SemEval2007 data.
+Cross-validation will be carried out on the collected data and a final model 
+% will be applied to the SemEval2007 data set~\cite{Strapparava2007Semeval2007} then 
+compared to results from that competition as well as cross validation results for the same model trained on SemEval2007 data.
 Features for these model will include word, ngram, hash tag and emoji tokens as well as emotion scores calculated with the hash tag emotion lexicon~\cite{Mohammad2012Emotional}. Note that there is evidence that term usage in social media can be useful for detection of emotions in media such as news articles~\cite{Mohammad2012Emotional}.
 
 {\em Note to reviewers}: It is unfortunate that we have not been able to perform these evaluations prior to writing this abstract, however we submit in any case due to the important prospect of new and easily obtainable labelled data. It is also likely that during the coming week, at the end of which final papers for the workshop should be completed, that we will complete the automated evaluation and a small manual evaluation. If not, I propose to withdraw the paper and wait for a future venue. This would be a shame, as this workshop would seem the most appropriate venue for this work.
 
-\subsection{Evaluation of emojis} \label{sec:emoji_evaluation}
+\subsection{Evaluation of emojis}
+\label{sec:emoji_evaluation}
 
 For the second evaluation, we selected a random subset of 360 of the collected English tweets. For these, we removed emotion-indicate emojis and created an annotation task asking the annotator to annotate all emotions expressed in the text.
 
