@@ -255,24 +255,42 @@ N-grams containing any of the selected emoji (for any emotion) were excluded fro
 %% will be applied to the SemEval2007 data set~\cite{Strapparava2007Semeval2007} then 
 Final models were trained with selected parameters and applied to annotated tweets. 
 % compared to results from that competition as well as cross validation results for the same model trained on SemEval2007 data.
-
+Note that precision of minority classes is overstated due to the unrealistic class balance from the tweet selection process for annotation.
 % Features for these model include word, ngram
 % , hash tag and emoji tokens as well as emotion scores calculated with the hash tag emotion lexicon~\cite{Mohammad2012Emotional}. 
 
 \begin{table}[!ht]
 \centering
-\begin{tabular}{c | c | c | c}
+\begin{tabular}{l | c | c | c}
 \textbf{Emotion} & \textbf{Precision}  & \textbf{Recall} & \textbf{F1} \\
 \hline
-             joy & 0.80       & 0.97   & 0.87 \\
-         disgust & 0.06       & 0.08   & 0.07 \\
-            fear & 0.07       & 0.36   & 0.11 \\
-        surprise & 0.07       & 0.12   & 0.09 \\
-             sad & 0.39       & 0.63   & 0.48 \\
-           anger & 0.19       & 0.21   & 0.20 \\
+             Joy & 0.80       & 0.97   & 0.87 \\
+         Disgust & 0.06       & 0.08   & 0.07 \\
+            Fear & 0.07       & 0.36   & 0.11 \\
+        Surprise & 0.07       & 0.12   & 0.09 \\
+             Sad & 0.39       & 0.63   & 0.48 \\
+           Anger & 0.19       & 0.21   & 0.20 \\
 \end{tabular}
 \caption{Cross validation results for SVM classifiers with emoji sets as labels.}
 \label{tab:SVM-CV-results}
+\end{table}
+
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{l | c | c | c| c}
+             & \textbf{precision} & \textbf{recall} &   \textbf{F1}   & \textbf{Accuracy} \\
+\hline
+         Joy &   0.342  & 0.889  & 0.494  & 0.453 \\
+     Disgust &   0.900  & 0.148  & 0.254  & 0.853 \\
+    Surprise &   0.273  & 0.145  & 0.189  & 0.786 \\
+        Fear &   0.200  & 0.371  & 0.260  & 0.636 \\
+     Sadness &   0.331  & 0.619  & 0.432  & 0.619 \\
+       Anger &   0.436  & 0.250  & 0.318  & 0.797 \\
+
+\end{tabular}
+\caption{SVM classifier performance on annotated data. }
+\label{tab:svm-annot-predict}
 \end{table}
 
 
