@@ -49,6 +49,7 @@ manual annotation of a subset of collected tweets.
 \section{Previous Work}
 % A previous study examined emoji in combination with selected hash tags and emoticons to build statistical models of emotion based on Plutchik's emotion scheme, which has 8 emotions in pairs of emotional opposites~\cite{Suttles2013Distant}. 
 Purver and Battersby~\shortcite{Purver2012} also use distant supervision labels for detecting Ekman’s six emotions in Twitter, in their case hashtags and emoticons. They conduct several experiments to assess the quality of classifier to identify and discriminate between different emotions. A survey reveals that emoticons associated with anger, surprise, and disgust are ambiguous. Generally, they find that emoticons are unreliable labels for most emotions besides happiness and sadness.
+
 In another study, Suttles and Ide~\shortcite{Suttles2013Distant} examine hashtags, emoticons, as well as emoji as distantly supervised labels to detect Plutchik’s eight emotions, constructing a binary classifier for each pair of polar opposites. In order to create a multi-way classifier, they require four additional neutral binary classifiers. 
 
 \section{Emotion Expression in Text Only Communication}
@@ -69,7 +70,7 @@ Facial expression emoji have become a common method for emotion communication in
 
 \section{Collecting Emoji Tweets}
 A selection of commonly used emoji\footnote{as indicated by http://emojitracker.com/} with clear emotional content were hand selected as emotion indicators and tweets that contained at least one of the selected emoji were collected. We used Ekman's emotion classification of six basic emotions~\cite{Ekman1992Argument} for our experiments.
-Another common scheme for categorical emotion classification was presented by Plutcik~\cite{plutchik1980general} and includes two extra basic emotions, trust and anticipation, however
+Another common scheme for categorical emotion classification was presented by Plutcik~\shortcite{plutchik1980general} and includes two extra basic emotions, trust and anticipation, however
 there were no emoji we considered clearly indicative of these emotions and Pevious research found~\cite{Suttles2013Distant} that emoji they chose for them are few and unreliable so they were not included here.
 The selected emoji are indicated in Tables~\ref{tab:selected-emoji} and~\ref{tab:selected-emoji-codpoints}.
 
