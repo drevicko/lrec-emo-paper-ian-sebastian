@@ -31,7 +31,9 @@ One approach to address these problems is to use self-annotated data, using expl
 This approach has had success with using text emoticons and selected hash tags for sentiment annotation~\cite{Davidov2010Enhanced} and emotion-specific hash tags for emotion annotation~\cite{Mohammad2012Emotional,Mohammad2015Using}.
 We present a study of the use of unicode emoji as self-annotation of a Twitter user's emotional state.
 Emoji are found to be used far more extensively than hash tags and we argue that they present a more faithful representation of a user's emotional state.
-We present an evaluation plan including training a supervised emotion detection model and applying it to the SemEval2007 data set as well as manual annotation of a subset of collected tweets.
+% We present an evaluation plan including training a supervised emotion detection model and applying it to the SemEval2007 data set as well as manual annotation of a subset of collected tweets.
+A substantial set of tweets containing emotion indicative emoji are collected and annotated for emotions. The accuracy and utility of emoji as emotion labels are evaluated directly (with respect to annotations) and through trained statistical models. 
+Results are cautiously optimistic.
 \newline 
 \Keywords{Twitter, hash tags, emotion annotation, emotion detection, emoji, emoticons} }
 
@@ -145,7 +147,7 @@ To illustrate the magnitude of the trending topic problem in our initial experim
 
 We also considered a set of emotion-related hash tags (similar to ~\cite{Mohammad2012Emotional}). However, we found that the number of such tweets was orders of magnitude lower than tweets with our emotion emoji. This fact combined with evidence from psycholinguistic research connecting emoji to emotion expression (see Section~\ref{sec:emotion_expression_in_text_only_communication}) forms our primary motivation to focus on emoji in the context of this study.
 
-\section{Data Summary}
+\subsection{Data Summary}
 We collected a total of over half a million tweets over a period of two weeks, of which 190,591 were tagged by Twitter as English. We show the tweet counts for the top 15 languages in Table \ref{tab:top-ten-langs}.
 Note that all the counts provided do not include retweets as 
 these are considered to bias the natural distribution of word frequencies due to the power-law distribution of retweet frequencies and the fact that a retweet contains verbatim text from the original tweet.
@@ -286,13 +288,14 @@ This is encouraging, as it indicates the existence of lexical features associate
 \section{Conclusion}
 % We present an approach that promisesPbegin{table}[]
 
-We have collected a substantial and multilingual data set of tweets containing emotion-specific emoji in a short time. We argue that we can expect these emoji to perform well as ground truth indicators of tweet emotion content and propose evaluations of that claim. 
-The lack of large, quality annotated data for emotion detection in social media and other text is a substantial barrier to continued research efforts in that area, and the approach presented here promises to provide some relief.
+We have collected a substantial and multilingual data set of tweets containing emotion-specific emoji in a short time and assessed selected emoji as emotion labels, utilising human annotations as the ground truth. We found moderate correspondence between emoji and emotion annotations, indicating the presence of emotion indicators in tweet texts alongside the emoji and suggesting that emoji may be useful as distant emotion labels for statistical models of emotion in text. There was evidence of ambiguous emoji usage and interpretation. An investigation of these in future research, particularly in the multilingual setting, will help to produce more adequate emotion indicators. Statistical models performed well on common emotions (joy and sadness), however performance on minority emotions was poor. 
 
 \section*{Acknowledgements}
 
-This publication has emanated from research supported by a research grant from Science Foundation Ireland (SFI) under Grant Number SFI/12/RC/2289.
-This project has emanated in part from research conducted with the financial support of the Irish Research Council (IRC) under Grant Number EBPPG/2014/30 and with Aylien Ltd. as Enterprise Partner. 
+This publication has emanated from research supported by a research grant from Science Foundation Ireland (SFI) under Grant Number SFI/12/RC/2289,
+% This project has emanated in part from research conducted with the financial support of 
+the Irish Research Council (IRC) under Grant Number EBPPG/2014/30 and with Aylien Ltd. as Enterprise Partner, 
+ and the European Union supported project MixedEmotions (H2020-644632).
 
 % \nocite{*}
 \section{Bibliographical References}
