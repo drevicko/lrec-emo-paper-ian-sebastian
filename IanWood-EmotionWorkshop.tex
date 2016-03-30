@@ -53,7 +53,7 @@ Research into text-only communication has, however, found that people find ways 
 % This is promising news for research into emotion in online social media.
 Other research has found that text emoticons (text sequences that indicate facial expressions, such as \emph{(-:}) produce similar brain responses to faces~\cite{Churches2014Emoticons}, and it is not unreasonable to expect that facial expression emoji (unicode characters whose glyphs are small images, such as 😅) function similarly.
 
-In recent years, marketing researchers have observed significant and continuing increases in the use of emoji in online media. This increase was not constrained to young internet users, but could be observed across all ages. 
+In recent years, marketing researchers claim to have observed significant and continuing increases in the use of emoji in online media~\cite{Com20152015}. This increase was not constrained to young internet users, but across all ages. 
 Facial expression emoji have become a common method for emotion communication in online social media that appears to have wide usage across many social contexts, and are thus excellent candidates for the detection of emotions and author-specified labelling of text data.
 
 %TODO: expand emoji proliferation and psychological usage section 
@@ -231,13 +231,57 @@ As we can see, joy emojis are the best at predicting their corresponding emotion
 
 \subsection{Evaluation of classifiers}
 \label{sec:classifier_evaluation}
-First, we will train support vector machine models on the collected data for each basic emotion. 
-Cross-validation will be carried out on the collected data and a final model 
-% will be applied to the SemEval2007 data set~\cite{Strapparava2007Semeval2007} then 
-compared to results from that competition as well as cross validation results for the same model trained on SemEval2007 data.
-Features for these model will include word, ngram, hash tag and emoji tokens as well as emotion scores calculated with the hash tag emotion lexicon~\cite{Mohammad2012Emotional}. Note that there is evidence that term usage in social media can be useful for detection of emotions in media such as news articles~\cite{Mohammad2012Emotional}.
+We will trained six support vector machine (SVM) classifiers with n-gram features (up to 5-grams) on the collected data (excluding annotated tweets --- see Section~\ref{sec:emoji_evaluation}), one for each basic emotion. 
+These used a linear kernel and squared hinge loss.
+N-grams containing any of the selected emoji (for any emotion) were excluded from the feature set.
+Parameter selection was carried out via a grid search and 3-fold cross-validation (results in Table~\ref{tab:SVM-CV-results}).
+% Cross-validation will be carried out on the collected data and a final model 
+%% will be applied to the SemEval2007 data set~\cite{Strapparava2007Semeval2007} then 
+Previous similar work has reported impressive accuracies~\cite{Purver2012Experimenting}, however test sets in this study were artificially balanced. 
+Performance measures we present reflect the difficulty of classification with highly imbalanced data, and are a more realistic estimate of performance in application settings.
 
-{\em Note to reviewers}: It is unfortunate that we have not been able to perform these evaluations prior to writing this abstract, however we submit in any case due to the important prospect of new and easily obtainable labelled data. It is also likely that during the coming week, at the end of which final papers for the workshop should be completed, that we will complete the automated evaluation and a small manual evaluation. If not, I propose to withdraw the paper and wait for a future venue. This would be a shame, as this workshop would seem the most appropriate venue for this work.
+Final models were trained with selected parameters and applied to annotated tweets (Table~\ref{tab:svm-annot-predict}). 
+% compared to results from that competition as well as cross validation results for the same model trained on SemEval2007 data.
+Note that precision of minority classes is overstated due to the unrealistic class balance from the tweet selection process for annotation.
+% Features for these model include word, ngram
+% , hash tag and emoji tokens as well as emotion scores calculated with the hash tag emotion lexicon~\cite{Mohammad2012Emotional}. 
+Results are comparable to results using emoji as emotion predictors (Table~\ref{tab:precision_emojis}). 
+This is encouraging, as it indicates the existence of lexical features associated with emoji and emotion usage.
+
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{l | c | c | c}
+\textbf{Emotion} & \textbf{Precision} & \textbf{Recall} &   \textbf{F1} \\
+\hline
+             Joy & 0.80       & 0.97   & 0.87 \\
+         Disgust & 0.06       & 0.08   & 0.07 \\
+        Surprise & 0.07       & 0.12   & 0.09 \\
+            Fear & 0.07       & 0.36   & 0.11 \\
+         Sadness & 0.39       & 0.63   & 0.48 \\
+           Anger & 0.19       & 0.21   & 0.20 \\
+\end{tabular}
+\caption{Cross validation results for SVM classifiers with emoji sets as labels.}
+\label{tab:SVM-CV-results}
+\end{table}
+
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{l | c | c | c | c | c | c}
+\textbf{Emotion} & \textbf{P$_{top}$}  & \textbf{R$_{top}$} & \textbf{F1$_{top}$} & \textbf{P$_{all}$}  & \textbf{R$_{all}$} & \textbf{F1$_{all}$} \\
+\hline
+         Joy &   0.08  & 0.81  & 0.14  &  0.51  & 0.87  & 0.64 \\
+     Disgust &   0.14  & 0.09  & 0.11  &  0.21  & 0.06  & 0.10 \\
+    Surprise &   0.01  & 0.08  & 0.02  &  0.50  & 0.19  & 0.28 \\
+        Fear &   0.20  & 0.38  & 0.26  &  0.13  & 0.50  & 0.20 \\
+     Sadness &   0.11  & 0.49  & 0.18  &  0.51  & 0.70  & 0.59 \\
+       Anger &   0.20  & 0.14  & 0.17  &  0.50  & 0.27  & 0.35 \\
+
+\end{tabular}
+\caption{SVM classifier performance against annotations. }
+\label{tab:svm-annot-predict}
+\end{table}
 
 \section{Conclusion}
 % We present an approach that promisesPbegin{table}[]
