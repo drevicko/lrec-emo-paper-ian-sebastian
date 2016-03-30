@@ -160,20 +160,10 @@ Note that all the tweet counts provided below do not include retweets.
 These are considered to bias the natural distribution of word frequencies due to the power-law distribution of retweet frequencies and the fact that a retweet contains verbatim text from the original tweet.
 
 \section{Evaluation}
-
+\label{sec:evaluation}
 We carry out two forms of evaluation: Firstly, 
 in Section~\ref{sec:emoji_evaluation}, we evaluate the quality of the chosen emojis as emotion indicators; secondly, 
 in Section~\ref{sec:classifier_evaluation}, we evaluate the quality of classifiers trained using emoji-labeled data.
-
-\subsection{Evaluation of classifiers} \label{sec:classifier_evaluation}
-
-First, we will train support vector machine models on the collected data for each basic emotion. 
-Cross-validation will be carried out on the collected data and a final model 
-% will be applied to the SemEval2007 data set~\cite{Strapparava2007Semeval2007} then 
-compared to results from that competition as well as cross validation results for the same model trained on SemEval2007 data.
-Features for these model will include word, ngram, hash tag and emoji tokens as well as emotion scores calculated with the hash tag emotion lexicon~\cite{Mohammad2012Emotional}. Note that there is evidence that term usage in social media can be useful for detection of emotions in media such as news articles~\cite{Mohammad2012Emotional}.
-
-{\em Note to reviewers}: It is unfortunate that we have not been able to perform these evaluations prior to writing this abstract, however we submit in any case due to the important prospect of new and easily obtainable labelled data. It is also likely that during the coming week, at the end of which final papers for the workshop should be completed, that we will complete the automated evaluation and a small manual evaluation. If not, I propose to withdraw the paper and wait for a future venue. This would be a shame, as this workshop would seem the most appropriate venue for this work.
 
 \subsection{Evaluation of emojis}
 \label{sec:emoji_evaluation}
@@ -255,6 +245,16 @@ Anger & 0.21 & 0.45 & 0.28 & 0.39 & 0.19 & 0.25
 \end{table}
 
 As we can see, joy emojis are the best at predicting their corresponding emotion, while fear is generally the most ambiguous. Fear emojis are present in many more tweets that are predominantly associated in fear and even when taking into account weak associations, only about every eighth tweet containing a fear emoji is also associated with fear. Disgust, anger, and sadness are similarly present in only about every third tweet containing a corresponding emoji, although sadness usually dominates when it is present. While surprise is less often the dominating emotion, its emojis are the second-best emotion indicators in tweets.
+
+\subsection{Evaluation of classifiers}
+\label{sec:classifier_evaluation}
+First, we will train support vector machine models on the collected data for each basic emotion. 
+Cross-validation will be carried out on the collected data and a final model 
+% will be applied to the SemEval2007 data set~\cite{Strapparava2007Semeval2007} then 
+compared to results from that competition as well as cross validation results for the same model trained on SemEval2007 data.
+Features for these model will include word, ngram, hash tag and emoji tokens as well as emotion scores calculated with the hash tag emotion lexicon~\cite{Mohammad2012Emotional}. Note that there is evidence that term usage in social media can be useful for detection of emotions in media such as news articles~\cite{Mohammad2012Emotional}.
+
+{\em Note to reviewers}: It is unfortunate that we have not been able to perform these evaluations prior to writing this abstract, however we submit in any case due to the important prospect of new and easily obtainable labelled data. It is also likely that during the coming week, at the end of which final papers for the workshop should be completed, that we will complete the automated evaluation and a small manual evaluation. If not, I propose to withdraw the paper and wait for a future venue. This would be a shame, as this workshop would seem the most appropriate venue for this work.
 
 \section{Conclusion}
 % We present an approach that promisesPbegin{table}[]
