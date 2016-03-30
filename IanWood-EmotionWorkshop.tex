@@ -69,7 +69,7 @@ Facial expression emoji have become a common method for emotion communication in
 %TODO: expand emoji proliferation and psychological usage section 
 
 \section{Collecting Emoji Tweets}
-A selection of commonly used emoji\footnote{as indicated by http://emojitracker.com/} with clear emotional content were hand selected as emotion indicators and tweets that contained at least one of the selected emoji were collected. We used Ekman's emotion classification of six basic emotions~\cite{Ekman1992Argument} for our experiments.
+A selection of commonly used emoji\footnote{as indicated by http://emojitracker.com/} with clear emotional content were hand selected as emotion indicators and tweets that contained at least one of the selected emoji were collected. We used Ekman's~\shortcite{Ekman1992Argument} emotion classification of six basic emotions for our experiments.
 Another common scheme for categorical emotion classification was presented by Plutcik~\shortcite{plutchik1980general} and includes two extra basic emotions, trust and anticipation, however
 there were no emoji we considered clearly indicative of these emotions. Pevious research found~\cite{Suttles2013Distant} that emoji they chose for them are few and unreliable so they were not included here.
 The selected emoji are indicated in Tables~\ref{tab:selected-emoji} and~\ref{tab:selected-emoji-codpoints}.
@@ -248,27 +248,34 @@ As we can see, joy emojis are the best at predicting their corresponding emotion
 
 \subsection{Evaluation of classifiers}
 \label{sec:classifier_evaluation}
-We will trained linear support vector machine (SVM) classifiers with n-gram features (up to 5-grams) on the collected data (excluding annotated tweets --- see Section~\ref{sec:emoji_evaluation}), one for each basic emotion. 
-Parameter selection was carried out via a grid search and 3-fold cross-validation.
+We will trained six support vector machine (SVM) classifiers with n-gram features (up to 5-grams) on the collected data (excluding annotated tweets --- see Section~\ref{sec:emoji_evaluation}), one for each basic emotion. 
+These used a linear kernel and squared hinge loss.
 N-grams containing any of the selected emoji (for any emotion) were excluded from the feature set.
+Parameter selection was carried out via a grid search and 3-fold cross-validation (results in Table~\ref{tab:SVM-CV-results}).
 % Cross-validation will be carried out on the collected data and a final model 
 %% will be applied to the SemEval2007 data set~\cite{Strapparava2007Semeval2007} then 
+Previous similar work has reported impressive accuracies~\cite{Purver2012Experimenting}, however test sets in this study were artificially balanced. 
+Performance measures we present reflect the difficulty of classification with highly imbalanced data, and are a more realistic estimate of performance in application settings.
+
 Final models were trained with selected parameters and applied to annotated tweets (Table~\ref{tab:svm-annot-predict}). 
 % compared to results from that competition as well as cross validation results for the same model trained on SemEval2007 data.
 Note that precision of minority classes is overstated due to the unrealistic class balance from the tweet selection process for annotation.
 % Features for these model include word, ngram
 % , hash tag and emoji tokens as well as emotion scores calculated with the hash tag emotion lexicon~\cite{Mohammad2012Emotional}. 
 
+Results are comparable to results using emoji as emotion predictors (Table~\ref{tab:precision_emojis}). 
+This is encouraging, as it indicates lexical features can capture 
+
 \begin{table}[!ht]
 \centering
 \begin{tabular}{l | c | c | c}
-\textbf{Emotion} & \textbf{Precision}  & \textbf{Recall} & \textbf{F1} \\
+\textbf{Emotion} & \textbf{Precision} & \textbf{Recall} &   \textbf{F1} \\
 \hline
              Joy & 0.80       & 0.97   & 0.87 \\
          Disgust & 0.06       & 0.08   & 0.07 \\
-            Fear & 0.07       & 0.36   & 0.11 \\
         Surprise & 0.07       & 0.12   & 0.09 \\
-             Sad & 0.39       & 0.63   & 0.48 \\
+            Fear & 0.07       & 0.36   & 0.11 \\
+         Sadness & 0.39       & 0.63   & 0.48 \\
            Anger & 0.19       & 0.21   & 0.20 \\
 \end{tabular}
 \caption{Cross validation results for SVM classifiers with emoji sets as labels.}
@@ -278,15 +285,15 @@ Note that precision of minority classes is overstated due to the unrealistic cla
 
 \begin{table}[!ht]
 \centering
-\begin{tabular}{l | c | c | c}
-             & \textbf{precision} & \textbf{recall} &   \textbf{F1} \\
+\begin{tabular}{l | c | c | c | c | c | c}
+\textbf{Emotion} & \textbf{P$_{top}$}  & \textbf{R$_{top}$} & \textbf{F1$_{top}$} & \textbf{P$_{all}$}  & \textbf{R$_{all}$} & \textbf{F1$_{all}$} \\
 \hline
-         Joy &   0.076  & 0.809  & 0.140  \\
-     Disgust &   0.143  & 0.085  & 0.107  \\
-    Surprise &   0.011  & 0.082  & 0.020  \\
-        Fear &   0.198  & 0.378  & 0.260  \\
-     Sadness &   0.113  & 0.488  & 0.183  \\
-       Anger &   0.203  & 0.142  & 0.167  \\
+         Joy &   0.08  & 0.81  & 0.14  &  0.51  & 0.87  & 0.64 \\
+     Disgust &   0.14  & 0.09  & 0.11  &  0.21  & 0.06  & 0.10 \\
+    Surprise &   0.01  & 0.08  & 0.02  &  0.50  & 0.19  & 0.28 \\
+        Fear &   0.20  & 0.38  & 0.26  &  0.13  & 0.50  & 0.20 \\
+     Sadness &   0.11  & 0.49  & 0.18  &  0.51  & 0.70  & 0.59 \\
+       Anger &   0.20  & 0.14  & 0.17  &  0.50  & 0.27  & 0.35 \\
 
 \end{tabular}
 \caption{SVM classifier performance against annotations. }
