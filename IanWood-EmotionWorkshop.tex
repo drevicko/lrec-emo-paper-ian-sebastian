@@ -120,8 +120,8 @@ tr  & 8,644 & 6,935 & 773 & 419 & 305 & 201 & 11\\
 ko  & 7,242 & 5,980 & 916 & 142 & 113 & 87 & 4\\
 ru  & 5,484 & 4,024 & 646 & 411 & 317 & 74 & 12\\
 it  & 4,086 & 3,391 & 376 & 156 & 119 & 34 & 10 \\
-% th  & 3,828 & 2,461 & 857 & 227 & 156 & 124 & 3\\
-% de  & 2,773 & 2,262 & 235 & 119 & 81 & 69 & 7
+th  & 3,828 & 2,461 & 857 & 227 & 156 & 124 & 3\\
+de  & 2,773 & 2,262 & 235 & 119 & 81 & 69 & 7
 \end{tabular}
 	\caption{Number of collected tweets per emoji for the top 15 languages (displayed with their ISO 639-1 codes). UNK: unknown language.}
 	\label{tab:top-ten-langs}
@@ -137,13 +137,12 @@ emoji usage through the analysis of associated words and contexts is in order.
 
 The ``sample'' endpoint of the Twitter public streaming API was used to collect tweets. This endpoint provides a random sample of 1-2\% of tweets produced in Twitter.
 Tweets containing at least one of the selected emoji were retained. 
-% The ``sample'' endpoint is not an entirely unbiased sample, with a substantially smaller proportion of all tweets sampled during times of high traffic~\cite{Morstatter2013Is}. This was considered to be of some benefit for this study, as it reduces the prominence of significant individual effects and their associated biases in the collected data.
-
-Twitter has a streaming endpoint, which can be queried with phrases (the ``filter'' endpoint) and provides only only tweets that mach the search criteria.
-This endpoint has two disadvantages that are relevant to the gathering of emotionally-indicative tweets: a) You can search only on entire (whitespace-delimited) words, and not on individual unicode glyphs; thus only emoticons surrounded by whitespace are retrieved; b) the volume of data for an emoji search phrase build from the above list is very large.
-
-A substantial data set could be collected in a single day; however this would be subject to biases resulting from the particular trending topics during that day. 
-Collecting a smaller proportion of tweets over a longer period mitigates this problem.
+The ``sample'' endpoint is not an entirely unbiased sample, with a substantially smaller proportion of all tweets sampled during times of high traffic~\cite{Morstatter2013Is}. This was considered to be of some benefit for this study, as it reduces the prominence of significant individual events and their associated biases in the collected data.
+Note also that it is important to collect tweets over a period longer than typical trending topics to avoid biases from those topics.
+% Twitter has a streaming endpoint, which can be queried with phrases (the ``filter'' endpoint) and provides only only tweets that mach the search criteria.
+% This endpoint has two disadvantages that are relevant to the gathering of emotionally-indicative tweets: a) You can search only on entire (whitespace-delimited) words, and not on individual unicode glyphs; thus only emoticons surrounded by whitespace are retrieved; b) the volume of data for an emoji search phrase build from the above list is very large.
+% A substantial data set could be collected in a single day; however this would be subject to biases resulting from the particular trending topics during that day. 
+% Collecting a smaller proportion of tweets over a longer period mitigates this problem.
 % The ``filter'' endpoint was not used
 To illustrate the magnitude of the trending topic problem in our initial experiment using the ``filter'' endpoint, we note that the most common hash tag (in 35,000 tweets) was ``\emph{\#mrandmrssotto}'', which relates to a prominent wedding in the US Filipino community.
 
