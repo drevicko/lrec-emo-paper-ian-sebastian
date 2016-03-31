@@ -81,15 +81,16 @@ there were no emoji we considered clearly indicative of these emotions, which is
 
 \begin{table}
 	\begin{tabular}{ll}
-joy      & {\tiny U+1F600, U+1F602, U+1F603, U+1F604, U+1F606, U+1F607, U+1F609, U+1F60A, U+1F60B} \\
-         & {\tiny U+1F60C, U+1F60D, U+1F60E, U+1F60F, U+1F31E, U+263A, U+1F618, U+1F61C, U+1F61D} \\
-         & {\tiny U+1F61B, U+1F63A, U+1F638, U+1F639, U+1F63B, U+1F63C, U+2764, U+1F496, U+1F495} \\
-         & {\tiny U+1F601, U+2665} \\
-anger    & {\tiny U+1F62C, U+1F620, U+1F610, U+1F611, U+1F620, U+1F621, U+1F616, U+1F624, U+1F63E} \\
+joy      & {\tiny U+1F600, U+1F602, U+1F603, U+1F604, U+1F606, U+1F607, U+1F609, U+1F60A} \\
+         & {\tiny U+1F60B, U+1F60C, U+1F60D, U+1F60E, U+1F60F, U+1F31E, U+263A, U+1F618} \\
+         & {\tiny U+1F61C, U+1F61D, U+1F61B, U+1F63A, U+1F638, U+1F639, U+1F63B, U+1F63C} \\
+         & {\tiny U+2764,  U+1F496, U+1F495, U+1F601, U+2665} \\
+anger    & {\tiny U+1F62C, U+1F620, U+1F610, U+1F611, U+1F620, U+1F621, U+1F616, U+1F624} \\
+         & {\tiny U+1F63E} \\
 disgust  & {\tiny U+1F4A9} \\
 fear     & {\tiny U+1F605, U+1F626, U+1F627, U+1F631, U+1F628, U+1F630, U+1F640} \\
-sad      & {\tiny U+1F614, U+1F615, U+2639, U+1F62B, U+1F629, U+1F622, U+1F625, U+1F62A, U+1F613} \\
-         & {\tiny U+1F62D, U+1F63F, U+1F494} \\
+sad      & {\tiny U+1F614, U+1F615, U+2639, U+1F62B, U+1F629, U+1F622, U+1F625, U+1F62A} \\
+         & {\tiny U+1F613, U+1F62D, U+1F63F, U+1F494} \\
 surprise & {\tiny U+1F633, U+1F62F, U+1F635, U+1F632} \\
 	\end{tabular}
 	\caption{Selected emoji Unicode code points}
@@ -119,8 +120,8 @@ tr  & 8,644 & 6,935 & 773 & 419 & 305 & 201 & 11\\
 ko  & 7,242 & 5,980 & 916 & 142 & 113 & 87 & 4\\
 ru  & 5,484 & 4,024 & 646 & 411 & 317 & 74 & 12\\
 it  & 4,086 & 3,391 & 376 & 156 & 119 & 34 & 10 \\
-th  & 3,828 & 2,461 & 857 & 227 & 156 & 124 & 3\\
-de  & 2,773 & 2,262 & 235 & 119 & 81 & 69 & 7
+% th  & 3,828 & 2,461 & 857 & 227 & 156 & 124 & 3\\
+% de  & 2,773 & 2,262 & 235 & 119 & 81 & 69 & 7
 \end{tabular}
 	\caption{Number of collected tweets per emoji for the top 15 languages (displayed with their ISO 639-1 codes). UNK: unknown language.}
 	\label{tab:top-ten-langs}
@@ -135,7 +136,8 @@ emoji usage through the analysis of associated words and contexts is in order.
 \subsection{Data collection}
 
 The ``sample'' endpoint of the Twitter public streaming API was used to collect tweets. This endpoint provides a random sample of 1-2\% of tweets produced in Twitter.
-Tweets containing at least one of the selected emoji were retained. The ``sample'' endpoint is not an entirely unbiased sample, with a substantially smaller proportion of all tweets sampled during times of high traffic~\cite{Morstatter2013Is}. This was considered to be of some benefit for this study, as it reduces the prominence of significant individual effects and their associated biases in the collected data.
+Tweets containing at least one of the selected emoji were retained. 
+% The ``sample'' endpoint is not an entirely unbiased sample, with a substantially smaller proportion of all tweets sampled during times of high traffic~\cite{Morstatter2013Is}. This was considered to be of some benefit for this study, as it reduces the prominence of significant individual effects and their associated biases in the collected data.
 
 Twitter has a streaming endpoint, which can be queried with phrases (the ``filter'' endpoint) and provides only only tweets that mach the search criteria.
 This endpoint has two disadvantages that are relevant to the gathering of emotionally-indicative tweets: a) You can search only on entire (whitespace-delimited) words, and not on individual unicode glyphs; thus only emoticons surrounded by whitespace are retrieved; b) the volume of data for an emoji search phrase build from the above list is very large.
@@ -163,7 +165,8 @@ For the first evaluation, we selected a random subset of 360 of the collected En
 
 In past research using crowd-sourcing, a tweet is usually annotated by three annotators. As emotion annotation is notoriously ambiguous, we increased the number of annotators. In total, 17 annotators annotated between 60 and 360 of the provided tweets, providing us with a large sample of different annotations.
 
-For calculating inter-annotator agreement, we use Fleiss' kappa as this (in contrast to Cohen's kappa) allows us to take into account (partial) annotations by more than two annotators. We weight each annotation with $ 6 / n_{ij}$ where $n_{ij}$ is the number of emotions annotated by annotator $i$ for tweet $j$ in order to prevent a bias towards annotators that favor multiple emotions. This yields $\kappa$ of 0.51, which signifies moderate agreement, a value in line with previous reported research.
+For calculating inter-annotator agreement, we use Fleiss' kappa. % as this (in contrast to Cohen's kappa) allows us to take into account (partial) annotations by more than two annotators. 
+We weight each annotation with $ 6 / n_{ij}$ where $n_{ij}$ is the number of emotions annotated by annotator $i$ for tweet $j$ in order to prevent a bias towards annotators that favor multiple emotions. This yields $\kappa$ of 0.51, which signifies moderate agreement, a value in line with previous reported research.
 
 \subsubsection{PMI}
 
@@ -225,7 +228,7 @@ Fear & 0.03 & 0.33 & 0.06 & 0.13 & 0.24 & 0.17 \\
 Sadness & 0.32 & 0.45 & 0.38 & 0.33 & 0.17 & 0.22 \\
 Anger & 0.21 & 0.45 & 0.28 & 0.39 & 0.19 & 0.25
 \end{tabular}
-\caption{Precision, recall, and F1 scores for emojis predicting annotated emotions. $_{top}$: emotion selected by most annotators used as gold label. $_{all}$: all emotions chosen by annotators used as gold labels.}
+\caption{Precision, recall, and F1 scores for emojis predicting annotated emotions. $_{top}$: emotion selected by most annotators used as gold label. $_{all}$: all annotations used as gold labels.}
 \label{tab:precision_emojis}
 \end{table}
 
