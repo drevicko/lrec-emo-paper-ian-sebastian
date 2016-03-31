@@ -31,7 +31,7 @@ One approach to address these problems is to use self-annotated data, using expl
 We present a study of the use of unicode emoji as self-annotation of a Twitter user's emotional state.
 Emoji are found to be used far more extensively than hash tags and we argue that they present a more faithful representation of a user's emotional state.
 % We present an evaluation plan including training a supervised emotion detection model and applying it to the SemEval2007 data set as well as manual annotation of a subset of collected tweets.
-A substantial set of tweets containing emotion indicative emoji are collected and annotated for emotions. The accuracy and utility of emoji as emotion labels are evaluated directly (with respect to annotations) and through trained statistical models. 
+A substantial set of tweets containing emotion indicative emoji are collected and a sample annotated for emotions. The accuracy and utility of emoji as emotion labels are evaluated directly (with respect to annotations) and through trained statistical models. 
 Results are cautiously optimistic and suggest further study of emotji usage.
 \newline 
 \Keywords{Twitter, hash tags, emotion annotation, emotion detection, emoji, emoticons} }
@@ -42,7 +42,7 @@ Results are cautiously optimistic and suggest further study of emotji usage.
 
 \section{Previous Work} 
 Purver and Battersby~\shortcite{Purver2012} also use distant supervision labels for detecting Ekman’s six emotions in Twitter, in their case hashtags and emoticons. They conduct several experiments to assess the quality of classifiers to identify and discriminate between different emotions. A survey reveals that emoticons associated with anger, surprise, and disgust are ambiguous. Generally, they find that emoticons are unreliable labels for most emotions besides happiness and sadness. In another study, Suttles and Ide~\shortcite{Suttles2013Distant} examine hashtags, emoticons, as well as emoji as distantly supervised labels to detect Plutchik’s eight emotions, constructing a binary classifier for each pair of polar opposites. In order to create a multi-way classifier, they require four additional neutral binary classifiers. 
-This approach has had success with using text emoticons and selected hash tags for sentiment annotation~\cite{Davidov2010Enhanced} and emotion-specific hash tags for emotion annotation~\cite{Mohammad2012Emotional,Mohammad2015Using}.
+Other work found success using text emoticons and selected hash tags for sentiment annotation~\cite{Davidov2010Enhanced} and emotion-specific hash tags for emotion annotation~\cite{Mohammad2012Emotional,Mohammad2015Using}.
 
 \section{Emotion Expression in Text-only Communication}
 \label{sec:emotion_expression_in_text_only_communication}
@@ -51,9 +51,9 @@ Indeed, research into emotion detection from video and voice has found that arou
 difficult to detect in text transcripts, implying that those aspects are not strongly expressed in text.
 One might think, therefore, that text-only communication would be emotion-poor, containing less expression of emotion than face-to-face or vocal communication.
 
-Research into text-only communication has, however, found that people find ways to communicate emotion, despite the lack of face, voice and body stance, and that text-only communication is no less rich in emotional content than face-to-face communication~\cite{Derks2008Role}.
+Research into text-only communication, however, indicates that people find ways to communicate emotion, despite the lack of face, voice and body stance, and that text-only communication is no less rich in emotional content than face-to-face communication~\cite{Derks2008Role}.
 % This is promising news for research into emotion in online social media.
-Other research has found that text emoticons (text sequences that indicate facial expressions, such as \emph{(-:}) produce similar brain responses to faces~\cite{Churches2014Emoticons}, and it is not unreasonable to expect that facial expression emoji (unicode characters whose glyphs are small images, such as 😅) function similarly.
+Other research has found that text emoticons (text sequences that indicate facial expressions, such as {\bf(-:} ) produce similar brain responses to faces~\cite{Churches2014Emoticons}, and it is not unreasonable to expect that facial expression emoji (unicode characters whose glyphs are small images, such as 😅) function similarly.
 
 In recent years, marketing researchers claim to have observed significant and continuing increases in the use of emoji in online media~\cite{Com20152015}. This increase was not constrained to young internet users, but across all ages. 
 Facial expression emoji have become a common method for emotion communication in online social media that appears to have wide usage across many social contexts, and are thus excellent candidates for the detection of emotions and author-specified labelling of text data.
@@ -63,24 +63,28 @@ Facial expression emoji have become a common method for emotion communication in
 \section{Collecting Emoji Tweets}
 We selected a number of commonly used emoji\footnote{as indicated by \url{http://emojitracker.com/}} with clear emotional content as emotion indicators and collected tweets that contained at least one of the selected emoji. We used Ekman's emotion classification of six basic emotions~\cite{Ekman1992Argument} for our experiments.
 Another common scheme for categorical emotion classification was presented by Plutchik~\shortcite{plutchik1980general} and includes two extra basic emotions, trust and anticipation. However,
-there were no emoji we considered clearly indicative of these emotions, which is in line with previous research found~\cite{Suttles2013Distant}, which found that emoji thought to be associated with anticipation are few and unreliable emotion indicators. The selected emoji and their corresponding Unicode code points are displayed in Tables~\ref{tab:selected-emoji} and~\ref{tab:selected-emoji-codpoints} respectively.
+there were no emoji we considered clearly indicative of these emotions, which is in line with previous research~\cite{Suttles2013Distant}.
+% , which found that emoji thought to be associated with anticipation are few and unreliable emotion indicators. 
+The selected emoji and their corresponding Unicode code points are displayed in Table~\ref{tab:selected-emoji-codpoints}.
+% ~\ref{tab:selected-emoji} and ...  respectively
 
 \begin{table}
 	\begin{tabular}{ll}
-		joy & 😀😂😃😄😆😇😉😊😋😌😍😎😏🌞☺😘😜😝😛 \\
-		& 😺😸😹😻😼❤💖💕😁♥ \\
+\multicolumn{2}{c}{Emoji glyphs}\\[2pt]
+		joy & 😀😂😃😄😆😇😉😊😋😌😍😎😏🌞☺😘😜😝 \\
+		& 😛😺😸😹😻😼❤💖💕😁♥ \\
 		anger & 😬😠😐😑😠😡😖😤😾 \\
 		disgust & 💩 \\
 		fear & 😅😦😧😱😨😰🙀 \\
 		sad & 😔😕☹😫😩😢😥😪😓😭😿💔 \\
-		surprise & 😳😯😵😲 \\
-	\end{tabular}
-	\caption{Selected emoji for Ekman's six emotions}
-	\label{tab:selected-emoji}
-\end{table}
-
-\begin{table}
-	\begin{tabular}{ll}
+		surprise & 😳😯😵😲 \\[3pt]
+% 	\end{tabular}
+% 	\caption{Selected emoji for Ekman's six emotions}
+% 	\label{tab:selected-emoji}
+% \end{table}
+\multicolumn{2}{c}{Unicode code points}\\[1pt]
+% \begin{table}
+% 	\begin{tabular}{ll}
 joy      & {\tiny U+1F600, U+1F602, U+1F603, U+1F604, U+1F606, U+1F607, U+1F609, U+1F60A} \\
          & {\tiny U+1F60B, U+1F60C, U+1F60D, U+1F60E, U+1F60F, U+1F31E, U+263A, U+1F618} \\
          & {\tiny U+1F61C, U+1F61D, U+1F61B, U+1F63A, U+1F638, U+1F639, U+1F63B, U+1F63C} \\
@@ -93,7 +97,7 @@ sad      & {\tiny U+1F614, U+1F615, U+2639, U+1F62B, U+1F629, U+1F622, U+1F625, 
          & {\tiny U+1F613, U+1F62D, U+1F63F, U+1F494} \\
 surprise & {\tiny U+1F633, U+1F62F, U+1F635, U+1F632} \\
 	\end{tabular}
-	\caption{Selected emoji Unicode code points}
+	\caption{Selected emoji and their Unicode code points}
 	\label{tab:selected-emoji-codpoints}
 \end{table}
 
@@ -123,7 +127,7 @@ it  & 4,086 & 3,391 & 376 & 156 & 119 & 34 & 10 \\
 th  & 3,828 & 2,461 & 857 & 227 & 156 & 124 & 3\\
 de  & 2,773 & 2,262 & 235 & 119 & 81 & 69 & 7
 \end{tabular}
-	\caption{Number of collected tweets per emoji for the top 15 languages (displayed with their ISO 639-1 codes). UNK: unknown language.}
+	\caption{Number of collected tweets per emotion for the top 15 languages (displayed with their ISO 639-1 codes). UNK: unknown language. Retweets have been excluded.}
 	\label{tab:top-ten-langs}
 \end{table*}
 
@@ -149,9 +153,9 @@ To illustrate the magnitude of the trending topic problem in our initial experim
 We also considered a set of emotion-related hash tags (similar to ~\cite{Mohammad2012Emotional}). However, we found that the number of such tweets was orders of magnitude lower than tweets with our emotion emoji. This fact combined with evidence from psycholinguistic research connecting emoji to emotion expression (see Section~\ref{sec:emotion_expression_in_text_only_communication}) forms our primary motivation to focus on emoji in the context of this study.
 
 \subsection{Data Summary}
-We collected a total of over half a million tweets over a period of two weeks, of which 190,591 were tagged by Twitter as English. We show the tweet counts for the top 15 languages in Table \ref{tab:top-ten-langs}.
-Note that all the counts provided do not include retweets as 
-these are considered to bias the natural distribution of word frequencies due to the power-law distribution of retweet frequencies and the fact that a retweet contains verbatim text from the original tweet.
+We collected a just over half a million tweets over a period of two weeks, of which 588,607 were not retweets and 190,591 of those were tagged by Twitter as English. We show the tweet counts for the top 15 languages in Table~\ref{tab:top-ten-langs}.
+Note that tweet counts do not include retweets as 
+these are considered to bias the natural distribution of word frequencies due to the apparent power-law distribution of retweet frequencies and the fact that a retweet contains verbatim text from the original tweet.
 
 \section{Evaluation}
 \label{sec:evaluation}
@@ -160,7 +164,10 @@ We carry out two forms of evaluation: a) In Section~\ref{sec:emoji_evaluation}, 
 \subsection{Evaluation of emojis}
 \label{sec:emoji_evaluation}
 
-For the first evaluation, we selected a random subset of 360 of the collected English tweets. For these, we removed emotion-indicative emoji and created an annotation task. The guidelines of the task ask the the annotator to annotate all emotions expressed in the text.
+For the first evaluation, 
+% we selected a random subset of 360 of the collected English tweets, . 
+we selected a random subset of 60 tweets containing at least one emotion emoji for each emotion, 360 tweets in total.
+For these, we removed emotion-indicative emoji and created an annotation task. The guidelines of the task ask the the annotator to annotate all emotions expressed in the text.
 
 In past research using crowd-sourcing, a tweet is usually annotated by three annotators. As emotion annotation is notoriously ambiguous, we increased the number of annotators. In total, 17 annotators annotated between 60 and 360 of the provided tweets, providing us with a large sample of different annotations.
 
@@ -188,7 +195,7 @@ To gain an understanding of the correlation, between emotions and emoji, we calc
 
 Note that among all emoji, emotions are correlated most strongly with their corresponding emoji. Anger and -- to a lesser degree -- surprise emoji are also correlated with disgust, while we observe a high correlation between sadness emoji and fear. Additionally, some emoji that we have associated with sadness and fear seem to be somewhat ambiguous, showcasing a slight correlation with joy. This can be due to two reasons: a) Some fear and sad emoji can be equally used to express joy; b) some tweets containing these emoji are ambiguous without context and can be attributed to both joy and fear or sadness.
 
-Calculating PMI scores not only between emojis and those emotions, which have been selected by the most annotators for each tweet, but all selected emotions produces a slightly different picture, which we show in Table \ref{tab:pmi_results_all_emotions}.
+Calculating PMI scores not only between emojis and those emotions which have been selected by the most annotators for each tweet, but all selected emotions produces a slightly different picture, which we show in Table \ref{tab:pmi_results_all_emotions}.
 
 \begin{table}[!ht]
 \centering
@@ -231,13 +238,13 @@ Anger & 0.21 & 0.45 & 0.28 & 0.39 & 0.19 & 0.25
 \label{tab:precision_emojis}
 \end{table}
 
-As we can see, joy emojis are the best at predicting their corresponding emotion, while fear is generally the most ambiguous. Fear emojis are present in many more tweets that are predominantly associated in fear and even when taking into account weak associations, only about every eighth tweet containing a fear emoji is also associated with fear. Disgust, anger, and sadness are similarly present in only about every third tweet containing a corresponding emoji, although sadness usually dominates when it is present. While surprise is less often the dominating emotion, its emoji are the second-best emotion indicators in tweets.
+As we can see, joy emojis are the best at predicting their corresponding emotion, while fear is generally the most ambiguous. Fear emojis are present in many more tweets that are predominantly associated with fear and even when taking into account weak associations, only about every eighth tweet containing a fear emoji is also associated with fear. Disgust, anger, and sadness are similarly present in only about every third tweet containing a corresponding emoji, although sadness usually dominates when it is present. While surprise is less often the dominating emotion, its emoji are the second-best emotion indicators in tweets.
 
 \subsection{Evaluation of classifiers}
 \label{sec:classifier_evaluation}
-We trained six support vector machine (SVM) binary classifiers with n-gram features (up to 5-grams) on the collected data (excluding annotated tweets --- see Section~\ref{sec:emoji_evaluation}), one for each basic emotion, using a linear kernel and squared hinge loss.
+We trained six support vector machine (SVM) binary classifiers with n-gram features (up to 5-grams) on the collected data (excluding annotated tweets), one for each basic emotion, using a linear kernel and squared hinge loss.
 N-grams containing any of the selected emoji (for any emotion) were excluded from the feature set.
-Parameter selection was carried out via grid search. We show results of 3-fold cross-validation in Table~\ref{tab:SVM-CV-results}.
+Parameter selection was carried out via grid search, maximising the F1 measure. We show results of 3-fold cross-validation in Table~\ref{tab:SVM-CV-results}.
 
 \begin{table}[!ht]
 \centering
@@ -255,7 +262,9 @@ Parameter selection was carried out via grid search. We show results of 3-fold c
 \label{tab:SVM-CV-results}
 \end{table}
 
-Note that previous similar work reporting impressive accuracies~\cite{Purver2012Experimenting} used artificially balanced train and sets. In contrast, the performance measures we report reflect the difficulty of classification with highly imbalanced data and provide a more realistic estimate of performance in real-world application settings.
+Note that previous similar work reporting impressive accuracies~\cite{Purver2012Experimenting} used artificially balanced test sets. In contrast, the performance measures we report reflect the difficulty of classification with highly imbalanced data and provide a more realistic estimate of performance in real-world application settings. 
+Reduced performance may also be due to diversification of emoji usage in recent years.
+% It is possible also that emoji usage has diversified in recent years, leading to less consistent usage.
 
 Final models were trained with parameters selected during optimization and applied to the classification of the annotated tweets, for which we show results in Table~\ref{tab:svm-annot-predict}.
 
@@ -272,7 +281,10 @@ Final models were trained with parameters selected during optimization and appli
        Anger &   0.20  & 0.14  & 0.17  &  0.50  & 0.27  & 0.35 \\
 
 \end{tabular}
-\caption{Precision, recall, and F1 for SVM classifiers for predicting annotated emotions. $_{top}$: emotion selected by most annotators used as gold label. $_{all}$: all emotions chosen by annotators used as gold labels.}
+\caption{Precision, recall, and F1 for SVM classifiers for predicting annotated emotions. 
+Subscripts as per Table~\ref{tab:precision_emojis}.
+% $_{top}$: emotion selected by most annotators used as gold label. $_{all}$: all emotions chosen by annotators used as gold labels.
+}
 \label{tab:svm-annot-predict}
 \end{table}
 
